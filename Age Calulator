@@ -1,0 +1,50 @@
+import java.time.LocalDateTime;  
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
+import java.lang.Math;
+import java.text.DecimalFormat;
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter the month you were born (as a number):");
+        int monthBorn = input.nextInt();
+        System.out.println("Enter the day you were born:");
+        int dayBorn = input.nextInt();
+        System.out.println("Enter the year you were born:");
+        int yearBorn = input.nextInt();
+        //***Do not change the code above. Type your program below
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        sdf.setTimeZone(TimeZone.getTimeZone("GMT-4"));
+        int year = calendar.get(Calendar.YEAR); 
+        int month = calendar.get(Calendar.MONTH) + 1; 
+        int day = calendar.get(Calendar.DATE);
+        int minute = calendar.get(Calendar.MINUTE); 
+        int second = calendar.get(Calendar.SECOND); 
+        int yearsDifference = year - yearBorn; 
+        int monthsDifference = month - monthBorn;
+        int daysDifference = day - dayBorn; 
+        double calcYears = (double) ((yearsDifference * 365) + (monthsDifference * 31) + daysDifference) / 365;
+        double calcMonth = 12 * calcYears; 
+        double calcDays = 365 * calcYears; 
+        double calcHours = 24 * calcDays; 
+        double calcMinutes = 1440 * calcDays; 
+        double seconds = 86400 * calcDays; 
+        DecimalFormat df = new DecimalFormat("#.##");
+        System.out.print("Years:" + df.format(calcYears) + " ");
+        System.out.print("Months:" + df.format(calcMonth) + " ");
+        System.out.print("Days:" + df.format(calcDays) + " "); 
+        System.out.print("Hours:" + df.format(calcHours) + " "); 
+        System.out.print("Minutes:" + df.format(calcMinutes) + " "); 
+        System.out.print("Seconds:" + df.format(seconds) + " "); 
+ 
+   }
+}
+
+
+
