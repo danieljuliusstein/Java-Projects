@@ -1,0 +1,64 @@
+import java.util.Scanner;
+import java.text.DecimalFormat;
+import java.lang.Math; 
+public class Main {
+  public static void main(String[] args) {
+    Scanner keyboard = new Scanner(System.in);
+    //Part 1 - Name Extraction
+    System.out.println("What is your full name?");
+    String fullName = keyboard.nextLine();
+    name(fullName);
+    System.out.println();
+    System.out.println("How many quarters do you have?");
+    int quarters = keyboard.nextInt();
+    System.out.println("How many dimes do you have?");
+    int dimes = keyboard.nextInt();
+    System.out.println("How many nickels do you have?");
+    int nickels = keyboard.nextInt();
+    System.out.println("How many pennies do you have?");
+    int pennies = keyboard.nextInt();
+    DecimalFormat df = new DecimalFormat("#.##");
+    System.out.println("You have $" + df.format(change(quarters, dimes, nickels, pennies)));
+    System.out.println(); 
+    rollDice();
+  }
+  public static void name(String splitted) {
+      String[] splitName = splitted.split("\\s+");
+      String firstName = splitName[0]; 
+      char firstInitial = firstName.charAt(0); 
+      int firstNameLength = firstName.length(); 
+      
+      String middleName = splitName[1]; 
+      char middleInitial = middleName.charAt(0); 
+      int middleNameLength = middleName.length(); 
+      
+      
+      String lastName = splitName[2]; 
+      char lastInitial = lastName.charAt(0); 
+      int lastNameLength = lastName.length(); 
+      
+      System.out.println("Your first name is " + firstName + " and it is " + firstNameLength + " characters long.");
+      System.out.println("Your middle name is " + middleName + " and it is " + middleNameLength + " characters long.");
+      System.out.println("Your first name is " + lastName + " and it is " + lastNameLength + " characters long.");
+      System.out.println("Your initials are " + firstInitial + middleInitial + lastInitial);
+  }
+  public static double change(double quarters, double dimes, double nickels, double pennies) {
+    
+    quarters *= 0.25;   
+    dimes *= .10; 
+    nickels *= .05; 
+    pennies *= .01; 
+    double total = quarters + dimes + nickels + pennies; 
+    return total; 
+  }
+  
+  public static void rollDice() {
+    
+    int firstRoll = (int) (Math.random() * 6) + 1;   
+    int secondRoll = (int) (Math.random() * 6) + 1;
+    System.out.println("Your first roll was " + firstRoll); 
+    System.out.println("Your second roll was " + secondRoll); 
+    System.out.println("The sum of your rolls is " + (firstRoll + secondRoll));
+  }
+
+}
