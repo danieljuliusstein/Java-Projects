@@ -1,8 +1,11 @@
 import java.util.Scanner;
 import java.text.DecimalFormat;
 import java.lang.Math; 
+
 public class Main {
+  
   public static void main(String[] args) {
+    
     Scanner keyboard = new Scanner(System.in);
     //Part 1 - Name Extraction
     System.out.println("What is your full name?");
@@ -21,8 +24,11 @@ public class Main {
     System.out.println("You have $" + df.format(change(quarters, dimes, nickels, pennies)));
     System.out.println(); 
     rollDice();
+    
   }
+  
   public static void name(String splitted) {
+    
       String[] splitName = splitted.split("\\s+");
       String firstName = splitName[0]; 
       char firstInitial = firstName.charAt(0); 
@@ -41,7 +47,9 @@ public class Main {
       System.out.println("Your middle name is " + middleName + " and it is " + middleNameLength + " characters long.");
       System.out.println("Your first name is " + lastName + " and it is " + lastNameLength + " characters long.");
       System.out.println("Your initials are " + firstInitial + middleInitial + lastInitial);
+    
   }
+  
   public static double change(double quarters, double dimes, double nickels, double pennies) {
     
     quarters *= 0.25;   
@@ -50,6 +58,7 @@ public class Main {
     pennies *= .01; 
     double total = quarters + dimes + nickels + pennies; 
     return total; 
+    
   }
   
   public static void rollDice() {
@@ -59,6 +68,7 @@ public class Main {
     System.out.println("Your first roll was " + firstRoll); 
     System.out.println("Your second roll was " + secondRoll); 
     System.out.println("The sum of your rolls is " + (firstRoll + secondRoll));
+    
   }
 
 }
