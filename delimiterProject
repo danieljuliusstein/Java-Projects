@@ -1,0 +1,68 @@
+//import the scanner class.
+import java.util.Scanner;
+
+//main class which holds all of the code.
+class Main {
+    
+    //creation of a static method called main. Lowercase because naming convention requires lowercase
+    public static void main(String[] args) {
+        
+        //introduction/instructions. 
+        System.out.println("Welcome to Mad Libs!\n" + "\nEnter in the following, seperated by a comma and a space:\n" + "\nverb, song name, adjective, adverb, student, verbed, teacher name\n");
+        
+        //user input. 
+        System.out.print("enter here: ");
+        
+        //create scanner class by creating an object and using it for user input.
+        Scanner obj = new Scanner(System.in);
+        
+        // Initialize a String array to store the user's input after splitting by ', '.
+        String[] array = null; 
+        
+        //boolean conditional for a while loop.
+        boolean state = false; 
+        
+        //the while loop which until the value of state is != false reruns the loop.
+        while(state == false) {
+            
+            //set string type of fullWord to the entire line user inputs.
+            String fullWord = obj.nextLine(); 
+            
+            //delimiterizes array
+            array = fullWord.split(", "); 
+            
+            //if conditional; if the length of array is less than 7, asks for user input.
+            if(array.length < 7){
+              System.out.println("\nsorry, there are not enough words\n");
+              System.out.print("please enter again: ");
+            }
+            
+            //if the array length is greater than 7, ask for user input. 
+            else if(array.length > 7) {
+              System.out.println("\nsorry, there are too many words\n");
+              System.out.print("please enter again: ");
+            }
+            
+            //if both of the if statements above evaluate to true, run else statement.
+            else{
+                
+                //sets boolean value of state = true and ends the while loop. 
+                state = true;   
+                
+                //declaring variables from indices of array.
+                String verb = array[0];
+                String songName = array[1];
+                String adjective = array[2];
+                String adverb = array[3]; 
+                String student = array[4]; 
+                String verbed = array[5]; 
+                String teacherName = array[6]; 
+                
+                //output. 
+                System.out.println("\nIt was a " + adjective + " day in AP Computer Science A, when " + teacherName + " burst in the doorway. They started singing " + songName + " while " + student + " " + verbed + " with them. The Whole class clapped as "  + student + " did their signature dance move: the " + adverb + " " + verb);
+            }
+        }
+        
+      }
+      
+    }
